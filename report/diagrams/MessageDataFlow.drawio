@@ -1,0 +1,18 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="MessageDataFlow" id="message-dataflow">
+    <mxGraphModel dx="1100" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1040" pageHeight="320" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="sender" value="&lt;b&gt;Người gửi&lt;/b&gt;&lt;br&gt;plaintext" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="20" y="110" width="170" height="70" as="geometry" /></mxCell>
+        <mxCell id="enc" value="Mã hóa E2EE&lt;br&gt;→ S3PQI / S3DR / S3MLS" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="240" y="110" width="200" height="70" as="geometry" /></mxCell>
+        <mxCell id="server" value="&lt;b&gt;Server&lt;/b&gt;&lt;br&gt;kiểm prefix, lưu ciphertext&lt;br&gt;(KHÔNG giải mã)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1"><mxGeometry x="490" y="100" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="recv" value="&lt;b&gt;Người nhận&lt;/b&gt;&lt;br&gt;giải mã E2EE → plaintext&lt;br&gt;(+ cache cục bộ)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="780" y="110" width="220" height="70" as="geometry" /></mxCell>
+        <mxCell id="note" value="DB chỉ chứa ciphertext + metadata, không có plaintext" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff9b2;strokeColor=#d6b656;size=14;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1"><mxGeometry x="490" y="220" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="m1" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="sender" target="enc"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m2" value="qua TLS" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="enc" target="server"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m3" value="qua TLS" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="server" target="recv"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m4" style="endArrow=none;dashed=1;html=1;strokeColor=#d6b656;" edge="1" parent="1" source="note" target="server"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

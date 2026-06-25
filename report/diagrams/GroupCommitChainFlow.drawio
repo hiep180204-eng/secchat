@@ -1,0 +1,21 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="GroupCommitChainFlow" id="commit-chain">
+    <mxGraphModel dx="1100" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1140" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="e0" value="&lt;b&gt;Epoch 0&lt;/b&gt;&lt;br&gt;Members {A}" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="140" width="160" height="70" as="geometry" /></mxCell>
+        <mxCell id="c1" value="Commit: add B&lt;br&gt;(+ Welcome, GroupInfo)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1"><mxGeometry x="250" y="125" width="180" height="100" as="geometry" /></mxCell>
+        <mxCell id="e1" value="&lt;b&gt;Epoch 1&lt;/b&gt;&lt;br&gt;Members {A, B}" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="140" width="160" height="70" as="geometry" /></mxCell>
+        <mxCell id="c2" value="Commit: remove B&lt;br&gt;(GroupInfo)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1"><mxGeometry x="690" y="125" width="180" height="100" as="geometry" /></mxCell>
+        <mxCell id="e2" value="&lt;b&gt;Epoch 2&lt;/b&gt;&lt;br&gt;Members {A}" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1"><mxGeometry x="930" y="140" width="160" height="70" as="geometry" /></mxCell>
+        <mxCell id="val" value="Server validate PublicGroup mỗi commit: ciphersuite X-Wing, group id, epoch nối tiếp, credential actor, member set khớp pending operation" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff9b2;strokeColor=#d6b656;size=14;align=left;spacingLeft=6;fontSize=10;" vertex="1" parent="1"><mxGeometry x="250" y="270" width="620" height="70" as="geometry" /></mxCell>
+        <mxCell id="g1" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="e0" target="c1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g2" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="c1" target="e1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g3" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="e1" target="c2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g4" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="c2" target="e2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g5" style="endArrow=none;dashed=1;html=1;strokeColor=#d6b656;" edge="1" parent="1" source="val" target="c1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g6" style="endArrow=none;dashed=1;html=1;strokeColor=#d6b656;" edge="1" parent="1" source="val" target="c2"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

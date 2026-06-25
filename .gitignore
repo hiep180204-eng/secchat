@@ -1,0 +1,48 @@
+# ---- Secret / môi trường (KHÔNG commit) ----
+.env
+.tmp_cert/
+.ops_backups/
+
+# ---- Python ----
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# ---- Rust (mls_bridge) ----
+target/
+mls_bridge/target/
+
+# ---- C build (khi build ngoài Docker) ----
+*.o
+*.so
+
+# ---- LaTeX (report) — file sinh tự động ----
+report/out/
+report/*.aux
+report/*.log
+report/*.toc
+report/*.lof
+report/*.lot
+report/*.out
+report/*.bbl
+report/*.blg
+report/*.fls
+report/*.fdb_latexmk
+report/*.synctex.gz
+
+# ---- Tài liệu của người khác (không công khai) ----
+report/Quang Anh_DA2.pdf
+
+# ---- Artifacts / IDE ----
+.tools/
+.dist/
+.audit_artifacts/
+tests/artifacts/
+.vscode/
+
+# ---- Ảnh/log rác ở thư mục gốc ----
+/*.png
+/*.log
+/.tmp_*.log
+/tmp_*.log

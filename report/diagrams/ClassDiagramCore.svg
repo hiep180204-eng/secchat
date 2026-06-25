@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="1089" viewBox="0 0 1640 1089" font-family="Segoe UI, Arial, sans-serif">
+<rect width="1640" height="1089" fill="#ffffff"/>
+<line x1="460" y1="128" x2="340" y2="110" stroke="#666" stroke-width="1.3"/>
+<text x="446" y="122" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="356" y="108" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="460" y1="128" x2="340" y2="400" stroke="#666" stroke-width="1.3"/>
+<text x="447" y="143" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="339" y="387" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="610" y1="217" x2="610" y2="330" stroke="#666" stroke-width="1.3"/>
+<text x="602" y="236" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="602" y="319" font-size="12" fill="#000" text-anchor="middle">1</text>
+<line x1="610" y1="217" x2="610" y2="620" stroke="#666" stroke-width="1.3"/>
+<text x="602" y="236" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="602" y="609" font-size="12" fill="#000" text-anchor="middle">0..1</text>
+<line x1="610" y1="217" x2="610" y2="910" stroke="#666" stroke-width="1.3"/>
+<text x="602" y="236" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="602" y="899" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="610" y1="217" x2="190" y2="620" stroke="#666" stroke-width="1.3"/>
+<text x="594" y="226" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="195" y="608" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="760" y1="128" x2="1300" y2="138" stroke="#666" stroke-width="1.3"/>
+<text x="775" y="141" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="1285" y="150" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="760" y1="128" x2="880" y2="400" stroke="#666" stroke-width="1.3"/>
+<text x="759" y="149" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="867" y="393" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="610" y1="469" x2="190" y2="910" stroke="#666" stroke-width="1.3"/>
+<text x="594" y="478" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="195" y="898" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="1180" y1="119" x2="1300" y2="138" stroke="#666" stroke-width="1.3"/>
+<text x="1194" y="133" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="1284" y="148" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="1030" y1="198" x2="1030" y2="330" stroke="#666" stroke-width="1.3"/>
+<text x="1022" y="217" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="1022" y="319" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="1030" y1="198" x2="1030" y2="620" stroke="#666" stroke-width="1.3"/>
+<text x="1022" y="217" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="1022" y="609" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="1030" y1="198" x2="1030" y2="910" stroke="#666" stroke-width="1.3"/>
+<text x="1022" y="217" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="1022" y="899" font-size="12" fill="#000" text-anchor="middle">0..1</text>
+<line x1="1030" y1="198" x2="1450" y2="620" stroke="#666" stroke-width="1.3"/>
+<text x="1035" y="218" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="1434" y="619" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="1030" y1="198" x2="1450" y2="910" stroke="#666" stroke-width="1.3"/>
+<text x="1031" y="219" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="1435" y="905" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<line x1="1450" y1="236" x2="1450" y2="330" stroke="#666" stroke-width="1.3"/>
+<text x="1442" y="255" font-size="12" fill="#000" text-anchor="middle">1</text>
+<text x="1442" y="319" font-size="12" fill="#000" text-anchor="middle">0..*</text>
+<rect x="460" y="40" width="300" height="177" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="460" y="40" width="300" height="28" fill="#f4cccc" stroke="#444" stroke-width="1.3"/>
+<text x="610" y="59" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">User</text>
+<text x="469" y="87" font-size="12" fill="#222">- username : String</text>
+<text x="469" y="106" font-size="12" fill="#222">- email : String</text>
+<text x="469" y="125" font-size="12" fill="#222">- displayName : String</text>
+<text x="469" y="144" font-size="12" fill="#222">- status : String</text>
+<text x="469" y="163" font-size="12" fill="#222">- createdAt : Date</text>
+<line x1="460" y1="169" x2="760" y2="169" stroke="#444" stroke-width="1"/>
+<text x="469" y="188" font-size="12" fill="#222">+ updateProfile(displayName, bio)</text>
+<text x="469" y="207" font-size="12" fill="#222">+ getFriends(-&gt; List&lt;User&gt;)</text>
+<rect x="40" y="40" width="300" height="139" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="40" y="40" width="300" height="28" fill="#fce5cd" stroke="#444" stroke-width="1.3"/>
+<text x="190" y="59" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">Friendship</text>
+<text x="49" y="87" font-size="12" fill="#222">- status : String</text>
+<text x="49" y="106" font-size="12" fill="#222">- requesterId : Int</text>
+<text x="49" y="125" font-size="12" fill="#222">- createdAt : Date</text>
+<line x1="40" y1="131" x2="340" y2="131" stroke="#444" stroke-width="1"/>
+<text x="49" y="150" font-size="12" fill="#222">+ accept(void)</text>
+<text x="49" y="169" font-size="12" fill="#222">+ reject(void)</text>
+<rect x="40" y="330" width="300" height="139" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="40" y="330" width="300" height="28" fill="#f9cb9c" stroke="#444" stroke-width="1.3"/>
+<text x="190" y="349" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">UserBlock</text>
+<text x="49" y="377" font-size="12" fill="#222">- blockerId : Int</text>
+<text x="49" y="396" font-size="12" fill="#222">- blockedId : Int</text>
+<text x="49" y="415" font-size="12" fill="#222">- blockedAt : Date</text>
+<line x1="40" y1="421" x2="340" y2="421" stroke="#444" stroke-width="1"/>
+<text x="49" y="440" font-size="12" fill="#222">+ block(user: User)</text>
+<text x="49" y="459" font-size="12" fill="#222">+ unblock(user: User)</text>
+<rect x="40" y="620" width="300" height="120" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="40" y="620" width="300" height="28" fill="#d9ead3" stroke="#444" stroke-width="1.3"/>
+<text x="190" y="639" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">Notification</text>
+<text x="49" y="667" font-size="12" fill="#222">- type : String</text>
+<text x="49" y="686" font-size="12" fill="#222">- payload : String</text>
+<text x="49" y="705" font-size="12" fill="#222">- isSent : Bool</text>
+<line x1="40" y1="711" x2="340" y2="711" stroke="#444" stroke-width="1"/>
+<text x="49" y="730" font-size="12" fill="#222">+ flush(void)</text>
+<rect x="40" y="910" width="300" height="114" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="40" y="910" width="300" height="28" fill="#d9d2e9" stroke="#444" stroke-width="1.3"/>
+<text x="190" y="929" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">IdentityLog</text>
+<text x="49" y="957" font-size="12" fill="#222">- version : Int</text>
+<text x="49" y="976" font-size="12" fill="#222">- eventType : String</text>
+<text x="49" y="995" font-size="12" fill="#222">- leafHash : String</text>
+<text x="49" y="1014" font-size="12" fill="#222">- createdAt : Date</text>
+<rect x="460" y="330" width="300" height="139" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="460" y="330" width="300" height="28" fill="#cfe2f3" stroke="#444" stroke-width="1.3"/>
+<text x="610" y="349" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">Identity</text>
+<text x="469" y="377" font-size="12" fill="#222">- identityPk : String</text>
+<text x="469" y="396" font-size="12" fill="#222">- identitySig : String</text>
+<text x="469" y="415" font-size="12" fill="#222">- version : Int</text>
+<line x1="460" y1="421" x2="760" y2="421" stroke="#444" stroke-width="1"/>
+<text x="469" y="440" font-size="12" fill="#222">+ sign(data: String -&gt; String)</text>
+<text x="469" y="459" font-size="12" fill="#222">+ rotate(void)</text>
+<rect x="460" y="620" width="300" height="120" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="460" y="620" width="300" height="28" fill="#ead1dc" stroke="#444" stroke-width="1.3"/>
+<text x="610" y="639" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">PqxdhBundle</text>
+<text x="469" y="667" font-size="12" fill="#222">- kemAlg : String</text>
+<text x="469" y="686" font-size="12" fill="#222">- signedPreKey : String</text>
+<text x="469" y="705" font-size="12" fill="#222">- version : Int</text>
+<line x1="460" y1="711" x2="760" y2="711" stroke="#444" stroke-width="1"/>
+<text x="469" y="730" font-size="12" fill="#222">+ claimOneTimeKey(-&gt; PreKey)</text>
+<rect x="460" y="910" width="300" height="120" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="460" y="910" width="300" height="28" fill="#c9daf8" stroke="#444" stroke-width="1.3"/>
+<text x="610" y="929" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">MlsKeyPackage</text>
+<text x="469" y="957" font-size="12" fill="#222">- ciphersuite : String</text>
+<text x="469" y="976" font-size="12" fill="#222">- keyPackage : String</text>
+<text x="469" y="995" font-size="12" fill="#222">- claimedAt : Date?</text>
+<line x1="460" y1="1001" x2="760" y2="1001" stroke="#444" stroke-width="1"/>
+<text x="469" y="1020" font-size="12" fill="#222">+ claim(-&gt; KeyPackage)</text>
+<rect x="880" y="40" width="300" height="158" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="880" y="40" width="300" height="28" fill="#fff2cc" stroke="#444" stroke-width="1.3"/>
+<text x="1030" y="59" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">Conversation</text>
+<text x="889" y="87" font-size="12" fill="#222">- type : String</text>
+<text x="889" y="106" font-size="12" fill="#222">- name : String</text>
+<text x="889" y="125" font-size="12" fill="#222">- isGroup : Bool</text>
+<text x="889" y="144" font-size="12" fill="#222">- createdAt : Date</text>
+<line x1="880" y1="150" x2="1180" y2="150" stroke="#444" stroke-width="1"/>
+<text x="889" y="169" font-size="12" fill="#222">+ getMessages(-&gt; List&lt;Message&gt;)</text>
+<text x="889" y="188" font-size="12" fill="#222">+ addMember(user: User)</text>
+<rect x="880" y="330" width="300" height="139" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="880" y="330" width="300" height="28" fill="#d0e0e3" stroke="#444" stroke-width="1.3"/>
+<text x="1030" y="349" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">ConversationMember</text>
+<text x="889" y="377" font-size="12" fill="#222">- lastReadMessageId : Int</text>
+<text x="889" y="396" font-size="12" fill="#222">- mutedUntil : Date?</text>
+<text x="889" y="415" font-size="12" fill="#222">- forceUnread : Bool</text>
+<line x1="880" y1="421" x2="1180" y2="421" stroke="#444" stroke-width="1"/>
+<text x="889" y="440" font-size="12" fill="#222">+ markRead(msgId: Int)</text>
+<text x="889" y="459" font-size="12" fill="#222">+ mute(until: Date)</text>
+<rect x="880" y="620" width="300" height="82" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="880" y="620" width="300" height="28" fill="#b6d7a8" stroke="#444" stroke-width="1.3"/>
+<text x="1030" y="639" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">GroupRole</text>
+<text x="889" y="667" font-size="12" fill="#222">- role : String</text>
+<line x1="880" y1="673" x2="1180" y2="673" stroke="#444" stroke-width="1"/>
+<text x="889" y="692" font-size="12" fill="#222">+ setRole(role: String)</text>
+<rect x="880" y="910" width="300" height="139" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="880" y="910" width="300" height="28" fill="#a4c2f4" stroke="#444" stroke-width="1.3"/>
+<text x="1030" y="929" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">MlsGroup</text>
+<text x="889" y="957" font-size="12" fill="#222">- groupId : String</text>
+<text x="889" y="976" font-size="12" fill="#222">- epoch : Int</text>
+<text x="889" y="995" font-size="12" fill="#222">- ciphersuite : String</text>
+<line x1="880" y1="1001" x2="1180" y2="1001" stroke="#444" stroke-width="1"/>
+<text x="889" y="1020" font-size="12" fill="#222">+ addMember(kp: KeyPackage)</text>
+<text x="889" y="1039" font-size="12" fill="#222">+ commit(void)</text>
+<rect x="1300" y="40" width="300" height="196" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="1300" y="40" width="300" height="28" fill="#f4cccc" stroke="#444" stroke-width="1.3"/>
+<text x="1450" y="59" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">Message</text>
+<text x="1309" y="87" font-size="12" fill="#222">- body : String</text>
+<text x="1309" y="106" font-size="12" fill="#222">- senderId : Int</text>
+<text x="1309" y="125" font-size="12" fill="#222">- createdAt : Date</text>
+<text x="1309" y="144" font-size="12" fill="#222">- editedAt : Date?</text>
+<text x="1309" y="163" font-size="12" fill="#222">- deletedAt : Date?</text>
+<line x1="1300" y1="169" x2="1600" y2="169" stroke="#444" stroke-width="1"/>
+<text x="1309" y="188" font-size="12" fill="#222">+ edit(newBody: String)</text>
+<text x="1309" y="207" font-size="12" fill="#222">+ delete(void)</text>
+<text x="1309" y="226" font-size="12" fill="#222">+ react(emoji: String)</text>
+<rect x="1300" y="330" width="300" height="76" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="1300" y="330" width="300" height="28" fill="#d9ead3" stroke="#444" stroke-width="1.3"/>
+<text x="1450" y="349" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">Reaction</text>
+<text x="1309" y="377" font-size="12" fill="#222">- emoji : String</text>
+<text x="1309" y="396" font-size="12" fill="#222">- createdAt : Date</text>
+<rect x="1300" y="620" width="300" height="120" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="1300" y="620" width="300" height="28" fill="#fce5cd" stroke="#444" stroke-width="1.3"/>
+<text x="1450" y="639" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">PinnedMessage</text>
+<text x="1309" y="667" font-size="12" fill="#222">- pinnedBy : Int</text>
+<text x="1309" y="686" font-size="12" fill="#222">- pinnedAt : Date</text>
+<line x1="1300" y1="692" x2="1600" y2="692" stroke="#444" stroke-width="1"/>
+<text x="1309" y="711" font-size="12" fill="#222">+ pin(void)</text>
+<text x="1309" y="730" font-size="12" fill="#222">+ unpin(void)</text>
+<rect x="1300" y="910" width="300" height="95" fill="#fff" stroke="#444" stroke-width="1.3"/>
+<rect x="1300" y="910" width="300" height="28" fill="#ffe599" stroke="#444" stroke-width="1.3"/>
+<text x="1450" y="929" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">GroupSystemEvent</text>
+<text x="1309" y="957" font-size="12" fill="#222">- eventType : String</text>
+<text x="1309" y="976" font-size="12" fill="#222">- targetUserId : Int</text>
+<text x="1309" y="995" font-size="12" fill="#222">- afterMessageId : Int</text>
+</svg>

@@ -1,0 +1,178 @@
+% ====================================================================
+% Tài liệu tham khảo - SecChat
+% Ngày truy cập các nguồn trực tuyến: 16/06/2026
+% ====================================================================
+
+% ---- Mã hóa đầu cuối và giao thức Signal ----------------------------
+@misc{ref:mls-rfc9420,
+  author       = {R. Barnes and B. Beurdouche and R. Robert and J. Millican and E. Omara and K. Cohn-Gordon},
+  title        = {{The Messaging Layer Security (MLS) Protocol}},
+  howpublished = {RFC 9420, IETF. \url{https://www.rfc-editor.org/rfc/rfc9420}},
+  year         = {2023},
+  note         = {DOI: 10.17487/RFC9420}
+}
+
+@misc{ref:pqxdh,
+  author       = {E. Kret and R. Schmidt},
+  title        = {{The PQXDH Key Agreement Protocol}},
+  howpublished = {Signal Foundation. \url{https://signal.org/docs/specifications/pqxdh/}},
+  year         = {2023},
+  note         = {Truy cập: 16/06/2026}
+}
+
+@misc{ref:double-ratchet,
+  author       = {T. Perrin and M. Marlinspike},
+  title        = {{The Double Ratchet Algorithm}},
+  howpublished = {Signal Foundation. \url{https://signal.org/docs/specifications/doubleratchet/}},
+  year         = {2016},
+  note         = {Truy cập: 16/06/2026}
+}
+
+% ---- Mật mã đối xứng, dẫn xuất khóa và kênh truyền -----------------
+@misc{ref:aes-gcm,
+  author       = {M. Dworkin},
+  title        = {{Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC}},
+  howpublished = {NIST Special Publication 800-38D. \url{https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf}},
+  year         = {2007},
+  note         = {DOI: 10.6028/NIST.SP.800-38D}
+}
+
+@misc{ref:hkdf-rfc5869,
+  author       = {H. Krawczyk and P. Eronen},
+  title        = {{HMAC-based Extract-and-Expand Key Derivation Function (HKDF)}},
+  howpublished = {RFC 5869, IETF. \url{https://www.rfc-editor.org/rfc/rfc5869}},
+  year         = {2010},
+  note         = {DOI: 10.17487/RFC5869}
+}
+
+@misc{ref:pbkdf2-rfc8018,
+  author       = {K. Moriarty and B. Kaliski and A. Rusch},
+  title        = {{PKCS \#5: Password-Based Cryptography Specification Version 2.1 (PBKDF2)}},
+  howpublished = {RFC 8018, IETF. \url{https://www.rfc-editor.org/rfc/rfc8018}},
+  year         = {2017},
+  note         = {DOI: 10.17487/RFC8018}
+}
+
+@misc{ref:tls13-rfc8446,
+  author       = {E. Rescorla},
+  title        = {{The Transport Layer Security (TLS) Protocol Version 1.3}},
+  howpublished = {RFC 8446, IETF. \url{https://www.rfc-editor.org/rfc/rfc8446}},
+  year         = {2018},
+  note         = {DOI: 10.17487/RFC8446}
+}
+
+@misc{ref:eddsa-rfc8032,
+  author       = {S. Josefsson and I. Liusvaara},
+  title        = {{Edwards-Curve Digital Signature Algorithm (EdDSA) -- Ed25519}},
+  howpublished = {RFC 8032, IETF. \url{https://www.rfc-editor.org/rfc/rfc8032}},
+  year         = {2017},
+  note         = {DOI: 10.17487/RFC8032}
+}
+
+@misc{ref:x25519-rfc7748,
+  author       = {A. Langley and M. Hamburg and S. Turner},
+  title        = {{Elliptic Curves for Security (Curve25519, X25519)}},
+  howpublished = {RFC 7748, IETF. \url{https://www.rfc-editor.org/rfc/rfc7748}},
+  year         = {2016},
+  note         = {DOI: 10.17487/RFC7748}
+}
+
+% ---- Mối đe dọa lượng tử và nền tảng toán học ----------------------
+@misc{ref:shor,
+  author       = {P. W. Shor},
+  title        = {{Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer}},
+  howpublished = {SIAM Journal on Computing, 26(5):1484--1509. \url{https://arxiv.org/abs/quant-ph/9508027}},
+  year         = {1997},
+  note         = {DOI: 10.1137/S0097539795293172}
+}
+
+@misc{ref:regev-lwe,
+  author       = {O. Regev},
+  title        = {{On Lattices, Learning with Errors, Random Linear Codes, and Cryptography}},
+  howpublished = {Journal of the ACM, 56(6):1--40. \url{https://cims.nyu.edu/~regev/papers/qcrypto.pdf}},
+  year         = {2009},
+  note         = {DOI: 10.1145/1568318.1568324}
+}
+
+% ---- Chuẩn hóa mật mã hậu lượng tử của NIST ------------------------
+@misc{ref:nist-pqc,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {{Post-Quantum Cryptography Standardization}},
+  howpublished = {NIST CSRC. \url{https://csrc.nist.gov/projects/post-quantum-cryptography}},
+  year         = {2024},
+  note         = {Truy cập: 16/06/2026}
+}
+
+@misc{ref:fips203,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {{Module-Lattice-Based Key-Encapsulation Mechanism Standard (ML-KEM)}},
+  howpublished = {FIPS 203. \url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf}},
+  year         = {2024},
+  note         = {DOI: 10.6028/NIST.FIPS.203}
+}
+
+@misc{ref:fips204,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {{Module-Lattice-Based Digital Signature Standard (ML-DSA)}},
+  howpublished = {FIPS 204. \url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf}},
+  year         = {2024},
+  note         = {DOI: 10.6028/NIST.FIPS.204}
+}
+
+@misc{ref:fips205,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {{Stateless Hash-Based Digital Signature Standard (SLH-DSA)}},
+  howpublished = {FIPS 205. \url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.205.pdf}},
+  year         = {2024},
+  note         = {DOI: 10.6028/NIST.FIPS.205}
+}
+
+@misc{ref:kyber-paper,
+  author       = {J. Bos and L. Ducas and E. Kiltz and T. Lepoint and V. Lyubashevsky and J. M. Schanck and P. Schwabe and G. Seiler and D. Stehl\'e},
+  title        = {{CRYSTALS-Kyber: A CCA-Secure Module-Lattice-Based KEM}},
+  howpublished = {IACR ePrint 2017/634. \url{https://eprint.iacr.org/2017/634}},
+  year         = {2018},
+  note         = {IEEE EuroS\&P 2018. DOI: 10.1109/EuroSP.2018.00032}
+}
+
+% ---- Thư viện và bản nháp triển khai -------------------------------
+@misc{ref:liboqs,
+  author       = {{Open Quantum Safe Project}},
+  title        = {{liboqs: C library for quantum-safe cryptography}},
+  howpublished = {GitHub. \url{https://github.com/open-quantum-safe/liboqs}},
+  year         = {2025},
+  note         = {Truy cập: 16/06/2026}
+}
+
+@misc{ref:openmls,
+  author       = {{OpenMLS Project}},
+  title        = {{The OpenMLS Book}},
+  howpublished = {\url{https://book.openmls.tech/}},
+  year         = {2025},
+  note         = {Truy cập: 16/06/2026}
+}
+
+@misc{ref:xwing,
+  author       = {D. Connolly and P. Schwabe and B. E. Westerbaan},
+  title        = {{X-Wing: General-Purpose Hybrid Post-Quantum KEM}},
+  howpublished = {Internet-Draft draft-connolly-cfrg-xwing-kem. \url{https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/}},
+  year         = {2026},
+  note         = {Bản nháp thực nghiệm (work in progress). Truy cập: 16/06/2026}
+}
+
+% ---- Hướng dẫn về mật khẩu -----------------------------------------
+@misc{ref:nist-80063b,
+  author       = {P. A. Grassi and J. L. Fenton and E. M. Newton and others},
+  title        = {{Digital Identity Guidelines: Authentication and Lifecycle Management}},
+  howpublished = {NIST Special Publication 800-63B. \url{https://pages.nist.gov/800-63-3/sp800-63b.html}},
+  year         = {2017},
+  note         = {DOI: 10.6028/NIST.SP.800-63b. Truy cập: 16/06/2026}
+}
+
+@misc{ref:owasp-password,
+  author       = {{OWASP Foundation}},
+  title        = {{Password Storage Cheat Sheet}},
+  howpublished = {OWASP Cheat Sheet Series. \url{https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html}},
+  year         = {2025},
+  note         = {Truy cập: 16/06/2026}
+}

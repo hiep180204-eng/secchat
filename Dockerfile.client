@@ -1,0 +1,63 @@
+FROM rust:1.87-bookworm AS mls_bridge_builder
+WORKDIR /build
+COPY mls_bridge/Cargo.toml ./Cargo.toml
+COPY mls_bridge/Cargo.lock ./Cargo.lock
+COPY mls_bridge/src ./src
+RUN cargo build --release
+
+FROM ubuntu:22.04
+ENV DEBIAN_FRONTEND=noninteractive
+
+# ── System packages ───────────────────────────────────────────
+RUN apt-get update && apt-get install -y \
+    python3 python3-pip python3.10-venv \
+    python3-pyqt5 \
+    tigervnc-standalone-server \
+    fluxbox \
+    xdotool \
+    xclip \
+    scrot \
+    fonts-noto-color-emoji \
+    fonts-dejavu-core \
+    fonts-liberation \
+    fonts-noto-cjk \
+    locales \
+    cmake ninja-build git libssl-dev \
+    ibus ibus-unikey dbus-x11 \
+    && rm -rf /var/lib/apt/lists/* \
+    && locale-gen en_US.UTF-8 \
+    && locale-gen vi_VN.UTF-8
+
+# ── Build liboqs C library ────────────────────────────────────
+RUN git clone --depth 1 https://github.com/open-quantum-safe/liboqs.git /tmp/liboqs && \
+    cmake -S /tmp/liboqs -B /tmp/liboqs/build \
+        -DOQS_DIST_BUILD=ON \
+        -DBUILD_SHARED_LIBS=ON \
+        -DOQS_BUILD_ONLY_LIB=ON \
+        -GNinja && \
+    ninja -C /tmp/liboqs/build && \
+    ninja -C /tmp/liboqs/build install && \
+    ldconfig && \
+    rm -rf /tmp/liboqs
+
+# ── Python venv + packages ────────────────────────────────────
+RUN python3 -m venv /opt/venv --system-site-packages
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install --upgrade pip && \
+    pip install cryptography liboqs-python
+
+# ── App files ─────────────────────────────────────────────────
+WORKDIR /app
+COPY client/ ./client/
+COPY client/main.py ./
+COPY --from=mls_bridge_builder /build/target/release/secchat_mls_bridge /usr/local/bin/secchat_mls_bridge
+
+# ── VNC password ─────────────────────────────────────────────
+RUN mkdir -p /root/.vnc && \
+    printf "docker\ndocker\nn\n" | vncpasswd
+
+EXPOSE 5900
+
+COPY start_client.sh /start.sh
+RUN chmod +x /start.sh
+CMD ["/start.sh"]

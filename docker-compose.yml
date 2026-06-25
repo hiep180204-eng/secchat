@@ -1,0 +1,120 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: chat-db
+    restart: unless-stopped
+    environment:
+      # Passwords are loaded from .env instead of being hardcoded here.
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpass}
+      MYSQL_DATABASE:      chatdb
+      MYSQL_USER:          chatuser
+      MYSQL_PASSWORD:      ${MYSQL_PASSWORD:-chatpass}
+    volumes:
+      - chat_db:/var/lib/mysql
+    networks:
+      - chat
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping",
+             "-h", "localhost", "-u", "chatuser", "-pchatpass"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: chat-server
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_USER: chatuser
+      DB_PASS: ${DB_PASS:-chatpass}
+      DB_NAME: chatdb
+      # Mở server GUI ở tab Metrics khi đặt =metrics (mặc định trống → tab Logs).
+      SECCHAT_GUI_TAB: ${SECCHAT_GUI_TAB:-}
+    ports:
+      - "18888:8888"  # WebSocket (host port avoids Windows reserved range)
+      - "18889:8889"  # HTTP control plane (/healthz /readyz /metrics)
+      - "5900:5900"   # Server admin GUI
+    volumes:
+      - ./.tmp_cert:/certs  # server writes public cert here for clients to pin
+    networks:
+      - chat
+
+  auditor:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: chat-auditor
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["python3", "/app/auditor_service.py"]
+    environment:
+      DB_HOST: db
+      DB_USER: chatuser
+      DB_PASS: ${DB_PASS:-chatpass}
+      DB_NAME: chatdb
+      AUDITOR_PORT: 8890
+    ports:
+      - "18890:8890"  # Identity transparency auditor API
+    networks:
+      - chat
+
+  client1:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: chat-client1
+    restart: unless-stopped
+    depends_on:
+      - server
+      - auditor
+    environment:
+      SECCHAT_SERVER_HOST: chat-server
+      SECCHAT_SERVER_PORT: 8888
+      SECCHAT_AUDITOR_URL: http://chat-auditor:8890
+      SECCHAT_TEST_PROBE: ${SECCHAT_TEST_PROBE:-0}
+      SECCHAT_TEST_PROBE_PATH: /tmp/secchat-ui-state.json
+    ports:
+      - "5901:5900"
+    volumes:
+      - ./.tmp_cert:/certs:ro  # read-only: pin the server cert
+      - ./1.png:/root/1.png:ro # demo avatar image for manual VNC testing
+    networks:
+      - chat
+
+  client2:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: chat-client2
+    restart: unless-stopped
+    depends_on:
+      - server
+      - auditor
+    environment:
+      SECCHAT_SERVER_HOST: chat-server
+      SECCHAT_SERVER_PORT: 8888
+      SECCHAT_AUDITOR_URL: http://chat-auditor:8890
+      SECCHAT_TEST_PROBE: ${SECCHAT_TEST_PROBE:-0}
+      SECCHAT_TEST_PROBE_PATH: /tmp/secchat-ui-state.json
+    ports:
+      - "5902:5900"
+    volumes:
+      - ./.tmp_cert:/certs:ro  # read-only: pin the server cert
+      - ./1.png:/root/1.png:ro # demo avatar image for manual VNC testing
+    networks:
+      - chat
+
+volumes:
+  chat_db:
+
+networks:
+  chat:
+    driver: bridge

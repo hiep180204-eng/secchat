@@ -1,0 +1,2 @@
+C:\Users\plzh\AppData\Local\Programs\Python\Python312\Lib\site-packages\oqs\__init__.py:1: UserWarning: liboqs version (major, minor) 0.15.0 differs from liboqs-python version 0.14.1
+  from oqs.oqs import (

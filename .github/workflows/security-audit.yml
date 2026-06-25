@@ -1,0 +1,46 @@
+name: SecChat C security audit
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1"
+
+jobs:
+  c-security-audit:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    env:
+      CHAT_PORT: "18888"
+      CHAT_HTTP_PORT: "18889"
+      SECCHAT_AUDITOR_URL: "http://localhost:18890"
+      FUZZ_SECONDS: ${{ github.event_name == 'schedule' && '900' || '180' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build and start stack
+        run: docker compose up -d --build
+
+      - name: Run C audit with timed fuzzing
+        run: python3 tools/run_server_c_audit.py --fuzz-seconds "$FUZZ_SECONDS" --artifact-dir .audit_artifacts
+
+      - name: Run operational fault injection tests
+        run: python3 tests/test_operational_fault_injection.py
+
+      - name: Upload fuzz artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: secchat-fuzz-artifacts
+          path: .audit_artifacts
+          if-no-files-found: ignore
+
+      - name: Docker logs on failure
+        if: failure()
+        run: docker compose logs --no-color --tail=200
+
+      - name: Shutdown
+        if: always()
+        run: docker compose down -v

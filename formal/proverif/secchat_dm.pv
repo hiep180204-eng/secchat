@@ -1,0 +1,92 @@
+(* SecChat DM model for ProVerif.
+
+   This is a symbolic abstraction of the SecChat DM setup:
+   a signed PQXDH-style prekey bundle, a previously verified responder
+   identity key, a hybrid X25519 + ML-KEM handshake, transcript/domain binding,
+   and one encrypted application message after the root key is derived.
+
+   It is not a proof of the Python/C implementation. It intentionally omits
+   UI state, local storage, metadata, group state, and implementation bugs.
+*)
+
+set ignoreTypes = false.
+
+free net: channel.
+
+type sskey.
+type spkey.
+type kemsk.
+type kempk.
+type drkey.
+
+fun spk(sskey): spkey.
+fun sign(bitstring, sskey): bitstring.
+reduc forall m: bitstring, k: sskey; checksign(sign(m, k), spk(k)) = m.
+
+fun kem_pk(kemsk): kempk.
+fun kem_enc(kempk, bitstring): bitstring.
+reduc forall ss: bitstring, k: kemsk; kem_dec(kem_enc(kem_pk(k), ss), k) = ss.
+
+fun hkdf(bitstring, bitstring, bitstring, bitstring, bitstring, bitstring): drkey.
+fun aead_enc(bitstring, drkey): bitstring.
+reduc forall m: bitstring, k: drkey; aead_dec(aead_enc(m, k), k) = m.
+
+free Alice, Bob: bitstring.
+free secchat_pqxdh: bitstring.
+free mlkem1024: bitstring.
+free application_secret: bitstring [private].
+
+event bundle_published(bitstring, spkey, kempk, bitstring).
+event begin_handshake(bitstring, bitstring, drkey).
+event accept_handshake(bitstring, bitstring, drkey).
+event send_application(bitstring, bitstring, bitstring).
+event receive_application(bitstring, bitstring, bitstring).
+
+query attacker(application_secret).
+query a: bitstring, b: bitstring, k: drkey;
+      event(accept_handshake(a, b, k)) ==> event(begin_handshake(a, b, k)).
+query a: bitstring, b: bitstring, m: bitstring;
+      event(receive_application(a, b, m)) ==> event(send_application(a, b, m)).
+
+process
+    new alice_id_sk: sskey;
+    new bob_id_sk: sskey;
+    new bob_kem_sk: kemsk;
+    let alice_id_pk = spk(alice_id_sk) in
+    let bob_id_pk = spk(bob_id_sk) in
+    let bob_kem_pk = kem_pk(bob_kem_sk) in
+    let bundle_body = (Bob, bob_id_pk, bob_kem_pk, mlkem1024, secchat_pqxdh) in
+    let bundle_sig = sign(bundle_body, bob_id_sk) in
+    event bundle_published(Bob, bob_id_pk, bob_kem_pk, mlkem1024);
+    out(net, (Alice, alice_id_pk));
+    out(net, (Bob, bob_id_pk, bob_kem_pk, mlkem1024, secchat_pqxdh, bundle_sig));
+    (
+        (* The verified/pinned safety number gives Alice the expected Bob
+           identity key. Without this check, a malicious server can replace
+           Bob's bundle with an attacker-owned self-signed bundle. *)
+        in(net, (=Bob, =bob_id_pk, peer_kem_pk: kempk,
+                 =mlkem1024, =secchat_pqxdh, peer_bundle_sig: bitstring));
+        let (=Bob, =bob_id_pk, =peer_kem_pk, =mlkem1024, =secchat_pqxdh) =
+            checksign(peer_bundle_sig, bob_id_pk) in
+        new x25519_shared: bitstring;
+        new kem_shared: bitstring;
+        let root = hkdf(x25519_shared, kem_shared, Alice, Bob,
+                        mlkem1024, secchat_pqxdh) in
+        event begin_handshake(Alice, Bob, root);
+        let init_body = (Alice, Bob, x25519_shared, kem_enc(peer_kem_pk, kem_shared),
+                         mlkem1024, secchat_pqxdh) in
+        out(net, (init_body, sign(init_body, alice_id_sk)));
+        event send_application(Alice, Bob, application_secret);
+        out(net, aead_enc(application_secret, root))
+    |
+        in(net, (init_body_r: bitstring, init_sig_r: bitstring));
+        let (=Alice, =Bob, x25519_shared_r: bitstring, kem_ct_r: bitstring,
+             =mlkem1024, =secchat_pqxdh) = checksign(init_sig_r, alice_id_pk) in
+        let kem_shared_r = kem_dec(kem_ct_r, bob_kem_sk) in
+        let root_r = hkdf(x25519_shared_r, kem_shared_r, Alice, Bob,
+                          mlkem1024, secchat_pqxdh) in
+        event accept_handshake(Alice, Bob, root_r);
+        in(net, app_ct: bitstring);
+        let app_plain = aead_dec(app_ct, root_r) in
+        event receive_application(Alice, Bob, app_plain)
+    )

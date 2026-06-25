@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="CryptoEngineSplit" id="crypto-engine-split">
+    <mxGraphModel dx="1100" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="940" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="boundary" value="client/crypto_engine" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fillColor=none;strokeColor=#9673a6;fontSize=12;fontStyle=2;" vertex="1" parent="1"><mxGeometry x="360" y="20" width="560" height="340" as="geometry" /></mxCell>
+        <mxCell id="ui" value="UI pages&lt;br&gt;(login / register / chat)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="40" width="240" height="50" as="geometry" /></mxCell>
+        <mxCell id="app" value="App (controller)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="150" width="240" height="50" as="geometry" /></mxCell>
+        <mxCell id="ws" value="WSNet (TLS WebSocket)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="260" width="240" height="50" as="geometry" /></mxCell>
+        <mxCell id="srv" value="Chat server" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="380" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="secproto" value="secure_protocol: PQXDH, Double Ratchet, wire S3*" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="380" y="60" width="520" height="44" as="geometry" /></mxCell>
+        <mxCell id="session" value="session: state, plaintext cache, backup, MLS state" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="380" y="120" width="520" height="44" as="geometry" /></mxCell>
+        <mxCell id="audit" value="audit: kiểm tra proof identity transparency" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="380" y="180" width="250" height="44" as="geometry" /></mxCell>
+        <mxCell id="bridge" value="openmls_bridge" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="650" y="180" width="250" height="44" as="geometry" /></mxCell>
+        <mxCell id="mls" value="MlsBridge (Rust binary, OpenMLS X-Wing)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1"><mxGeometry x="540" y="270" width="280" height="50" as="geometry" /></mxCell>
+        <mxCell id="s1" style="endArrow=none;html=1;strokeColor=#555555;" edge="1" parent="1" source="ui" target="app"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="s2" style="endArrow=none;html=1;strokeColor=#555555;" edge="1" parent="1" source="app" target="ws"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="s3" value="TLS WebSocket" style="endArrow=open;dashed=1;html=1;strokeColor=#999999;fontSize=9;" edge="1" parent="1" source="ws" target="srv"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="s4" value="ủy quyền state + mã hóa" style="endArrow=block;html=1;strokeColor=#9673a6;fontSize=9;" edge="1" parent="1" source="app" target="session"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="s5" value="JSON IPC" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="bridge" target="mls"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="s6" style="endArrow=none;html=1;strokeColor=#82b366;" edge="1" parent="1" source="session" target="bridge"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

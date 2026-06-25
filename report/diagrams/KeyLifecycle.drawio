@@ -1,0 +1,27 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="KeyLifecycle" id="key-lifecycle">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="pw" value="Mật khẩu đăng nhập" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="40" width="210" height="44" as="geometry" /></mxCell>
+        <mxCell id="mk" value="Master key" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="160" width="210" height="44" as="geometry" /></mxCell>
+        <mxCell id="files" value="File E2EE cục bộ (mã hóa bằng master key):&lt;br&gt;identity_sk, prekey, ratchet, MLS state, cache" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1"><mxGeometry x="30" y="280" width="230" height="110" as="geometry" /></mxCell>
+        <mxCell id="ik" value="Identity key (Ed25519)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="420" y="40" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="spk" value="Signed prekey:&lt;br&gt;X25519 + ML-KEM / Kyber" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="420" y="150" width="220" height="54" as="geometry" /></mxCell>
+        <mxCell id="root" value="Root secret (HKDF hybrid)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="420" y="270" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="mkk" value="Message key&lt;br&gt;(dùng một lần mỗi tin)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="420" y="380" width="220" height="54" as="geometry" /></mxCell>
+        <mxCell id="kp" value="MLS KeyPackage (X-Wing)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1"><mxGeometry x="730" y="150" width="220" height="54" as="geometry" /></mxCell>
+        <mxCell id="epoch" value="Epoch secret (group)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1"><mxGeometry x="730" y="270" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="appk" value="Application key group&lt;br&gt;(mỗi tin)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1"><mxGeometry x="730" y="380" width="220" height="54" as="geometry" /></mxCell>
+        <mxCell id="k1" value="PBKDF2 600k (salt = username)" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="pw" target="mk"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="k2" value="wrap / mã hóa" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="mk" target="files"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="k3" value="ký" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="ik" target="spk"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="k4" value="PQXDH (DH + KEM)" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="spk" target="root"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="k5" value="Double Ratchet" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="root" target="mkk"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="k6" value="ký KeyPackage" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="ik" target="kp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="k7" value="MLS Commit" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="kp" target="epoch"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="k8" value="MLS ratchet" style="endArrow=block;html=1;strokeColor=#333333;fontSize=9;" edge="1" parent="1" source="epoch" target="appk"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

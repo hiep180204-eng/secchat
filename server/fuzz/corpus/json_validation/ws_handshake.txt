@@ -1,0 +1,7 @@
+GET / HTTP/1.1
+Host: localhost:8888
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Version: 13
+Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+

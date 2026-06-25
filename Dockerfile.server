@@ -1,0 +1,83 @@
+FROM rust:1.87-bookworm AS mls_bridge_builder
+WORKDIR /build
+COPY mls_bridge/Cargo.toml ./Cargo.toml
+COPY mls_bridge/Cargo.lock ./Cargo.lock
+COPY mls_bridge/src ./src
+RUN cargo build --release
+
+FROM ubuntu:22.04
+ENV DEBIAN_FRONTEND=noninteractive
+
+# System packages
+RUN apt-get update && apt-get install -y \
+    gcc clang make cppcheck \
+    libssl-dev \
+    libmysqlclient-dev \
+    default-libmysqlclient-dev \
+    python3 python3-pip python3.10-venv \
+    python3-pyqt5 \
+    tigervnc-standalone-server \
+    fluxbox \
+    cmake ninja-build git \
+    && rm -rf /var/lib/apt/lists/*
+
+# ── Build liboqs C library ────────────────────────────────────
+RUN git clone --depth 1 https://github.com/open-quantum-safe/liboqs.git /tmp/liboqs && \
+    cmake -S /tmp/liboqs -B /tmp/liboqs/build \
+        -DOQS_DIST_BUILD=ON \
+        -DBUILD_SHARED_LIBS=ON \
+        -DOQS_BUILD_ONLY_LIB=ON \
+        -GNinja && \
+    ninja -C /tmp/liboqs/build && \
+    ninja -C /tmp/liboqs/build install && \
+    ldconfig && \
+    rm -rf /tmp/liboqs
+
+# ── Python venv + packages ────────────────────────────────────
+RUN python3 -m venv /opt/venv --system-site-packages
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install --upgrade pip && \
+    pip install cryptography liboqs-python PyMySQL
+
+# NOTE: TLS cert is generated at container STARTUP (start_server.sh), not build time.
+# This ensures each deployment gets a unique runtime TLS certificate.
+# openssl is already available via libssl-dev.
+
+# App files
+WORKDIR /build
+COPY server/ ./
+
+# ── Embed cJSON (S1: secure JSON parser) ─────────────────────
+# Pin to v1.7.18 (latest stable, MIT license, security-audited).
+# git is already installed above for liboqs.
+RUN git clone --depth 1 --branch v1.7.18 https://github.com/DaveGamble/cJSON.git /tmp/cjson && \
+    cp /tmp/cjson/cJSON.c /tmp/cjson/cJSON.h ./ && \
+    rm -rf /tmp/cjson
+
+# Build C server in /build (not /app/server) so binary name never conflicts with a directory
+RUN make && cp chat_server /usr/local/bin/chat_server
+COPY --from=mls_bridge_builder /build/target/release/secchat_mls_bridge /usr/local/bin/secchat_mls_bridge
+
+# Install SQL migrations to a stable runtime location.
+# The binary's working directory at runtime is /app, so a relative path like
+# "repository/migrations" cannot be resolved.  /usr/local/share/chat_server/migrations
+# is the default value of MIGRATIONS_DIR in infra/config.c.
+RUN mkdir -p /usr/local/share/chat_server/migrations && \
+    cp -r repository/migrations/. /usr/local/share/chat_server/migrations/
+
+# Runtime app dir
+WORKDIR /app
+COPY server_gui.py ./
+COPY auditor_service.py ./
+# server_gui.py looks for binary named 'server' in same dir as itself
+RUN ln -s /usr/local/bin/chat_server /app/server
+
+# VNC password
+RUN mkdir -p /root/.vnc && \
+    printf "docker\ndocker\nn\n" | vncpasswd
+
+EXPOSE 8888 8889 5900
+
+COPY start_server.sh /start.sh
+RUN chmod +x /start.sh
+CMD ["/start.sh"]

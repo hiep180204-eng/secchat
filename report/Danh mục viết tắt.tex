@@ -1,0 +1,78 @@
+\chapter*{Danh mục từ viết tắt}
+\addcontentsline{toc}{chapter}{Danh mục từ viết tắt}
+\markboth{Danh mục từ viết tắt}{Danh mục từ viết tắt}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{p{2.7cm} p{12.3cm}}
+\textbf{Viết tắt} & \textbf{Diễn giải} \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}{\textit{(tiếp theo trang trước)}} \\
+\textbf{Viết tắt} & \textbf{Diễn giải} \\
+\hline
+\endhead
+AAD & Associated Authenticated Data -- dữ liệu được xác thực nhưng không mã hóa, đi kèm trong AEAD \\
+AEAD & Authenticated Encryption with Associated Data -- mã hóa có xác thực kèm dữ liệu liên kết \\
+AES & Advanced Encryption Standard -- chuẩn mã hóa khối đối xứng \\
+AES-GCM & AES ở chế độ Galois/Counter Mode -- cung cấp đồng thời mã hóa và xác thực \\
+AES-NI & AES New Instructions -- tập lệnh phần cứng của CPU giúp tăng tốc AES \\
+ASan / UBSan & Address Sanitizer / Undefined Behavior Sanitizer -- công cụ phát hiện lỗi bộ nhớ và hành vi không xác định khi chạy mã C \\
+BSD & Berkeley Software Distribution -- ở đây chỉ giao diện lập trình mạng ``socket BSD'' \\
+CFFI & C Foreign Function Interface -- cơ chế cho phép Python gọi mã C \\
+CRYSTALS & Cryptographic Suite for Algebraic Lattices -- bộ thuật toán mật mã trên lưới (gồm Kyber và Dilithium) \\
+CVP & Closest Vector Problem -- bài toán tìm vector gần nhất trên lưới \\
+DH & Diffie-Hellman -- giao thức trao đổi khóa Diffie-Hellman \\
+DM & Direct Message -- tin nhắn trực tiếp giữa hai người dùng \\
+E2EE & End-to-End Encryption -- mã hóa đầu cuối \\
+ECDH & Elliptic Curve Diffie-Hellman -- trao đổi khóa Diffie-Hellman trên đường cong elliptic \\
+ECDSA & Elliptic Curve Digital Signature Algorithm -- chữ ký số trên đường cong elliptic \\
+Ed25519 & Lược đồ chữ ký số EdDSA trên đường cong Curve25519 (dùng cho khóa định danh) \\
+FIPS & Federal Information Processing Standards -- bộ chuẩn xử lý thông tin liên bang Hoa Kỳ do NIST ban hành (ví dụ FIPS 203) \\
+FK & Foreign Key -- khóa ngoại trong lược đồ cơ sở dữ liệu \\
+FO & Fujisaki-Okamoto -- biến đổi nâng một KEM lên mức an toàn IND-CCA2 \\
+FS & Forward Secrecy -- bí mật chuyển tiếp \\
+HKDF & HMAC-based Key Derivation Function -- hàm dẫn xuất khóa dựa trên HMAC \\
+HMAC & Hash-based Message Authentication Code -- mã xác thực thông điệp dựa trên hàm băm \\
+HPKE & Hybrid Public Key Encryption -- mã hóa khóa công khai lai, dùng trong TreeKEM của MLS \\
+IETF & Internet Engineering Task Force -- tổ chức tiêu chuẩn hóa Internet, ban hành các RFC \\
+IKM & Input Keying Material -- vật liệu khóa đầu vào của HKDF \\
+IND-CCA2 & Indistinguishability under adaptive Chosen-Ciphertext Attack -- mức an toàn chống tấn công chọn bản mã thích nghi \\
+KDF & Key Derivation Function -- hàm dẫn xuất khóa \\
+KEM & Key Encapsulation Mechanism -- cơ chế đóng gói khóa \\
+LWE & Learning With Errors -- bài toán học kèm lỗi, nền tảng của mật mã trên lưới \\
+Module-LWE & Module Learning With Errors -- biến thể LWE trên vành đa thức, nền tảng của ML-KEM \\
+ML-DSA & Module-Lattice-Based Digital Signature Algorithm -- chữ ký số trên lưới (FIPS 204) \\
+ML-KEM & Module-Lattice-Based Key-Encapsulation Mechanism -- KEM trên lưới (FIPS 203, tiền thân là Kyber) \\
+MLS & Messaging Layer Security -- giao thức bảo mật nhắn tin nhóm (RFC 9420) \\
+NIST & National Institute of Standards and Technology -- Viện Tiêu chuẩn và Công nghệ Quốc gia Hoa Kỳ \\
+NP-hard & Non-deterministic Polynomial-time hard -- lớp bài toán ``khó'' trong lý thuyết độ phức tạp \\
+NTT & Number Theoretic Transform -- biến đổi số học giúp tăng tốc nhân đa thức \\
+OQS & Open Quantum Safe -- dự án mã nguồn mở cung cấp thư viện \texttt{liboqs} \\
+PBKDF2 & Password-Based Key Derivation Function 2 -- hàm dẫn xuất khóa từ mật khẩu (RFC 8018) \\
+PCS & Post-Compromise Security -- bí mật hậu thỏa hiệp \\
+PK & Primary Key -- khóa chính trong lược đồ cơ sở dữ liệu \\
+PQ & Post-Quantum -- (thuộc về) hậu lượng tử \\
+PQC & Post-Quantum Cryptography -- mật mã hậu lượng tử \\
+PQXDH & Post-Quantum Extended Diffie-Hellman -- bắt tay khóa hậu lượng tử của Signal \\
+QKD & Quantum Key Distribution -- phân phối khóa lượng tử (dùng phần cứng, khác với PQC chạy bằng phần mềm) \\
+RFC & Request for Comments -- tài liệu tiêu chuẩn của IETF (ví dụ RFC 9420 về MLS) \\
+ROM & Random Oracle Model -- mô hình oracle ngẫu nhiên (bản lượng tử gọi là QROM) \\
+RSA & Rivest-Shamir-Adleman -- hệ mật mã khóa công khai cổ điển dựa trên phân tích số nguyên \\
+S3DR & Prefix tin DM của SecChat sau khi đã vào Double Ratchet \\
+S3MLS & Prefix tin nhóm của SecChat, mã hóa bằng MLS \\
+S3PQI & Prefix tin DM đầu phiên của SecChat, mang transcript bắt tay PQXDH \\
+SHA & Secure Hash Algorithm -- họ hàm băm an toàn (ví dụ SHA-256) \\
+SHAKE & Hàm băm đầu ra mở rộng thuộc họ SHA-3 (SHAKE-128, SHAKE-256) \\
+SLH-DSA & Stateless Hash-Based Digital Signature Algorithm -- chữ ký số dựa trên hàm băm (FIPS 205) \\
+SP & Special Publication -- ấn bản đặc biệt của NIST (ví dụ SP 800-38D, SP 800-63B) \\
+SPHINCS+ & Lược đồ chữ ký số dựa trên hàm băm, nền tảng của SLH-DSA \\
+SVP & Shortest Vector Problem -- bài toán tìm vector ngắn nhất trên lưới \\
+TreeKEM & Cơ chế trao đổi khóa nhóm theo cây nhị phân trong MLS \\
+VNC & Virtual Network Computing -- giao thức truy cập màn hình từ xa \\
+X.509 & Chuẩn định dạng chứng chỉ khóa công khai (dùng trong TLS) \\
+X25519 & Hàm trao đổi khóa ECDH trên đường cong Curve25519 \\
+X3DH & Extended Triple Diffie-Hellman -- bắt tay khóa cổ điển của Signal (tiền thân của PQXDH) \\
+X-Wing & KEM hybrid kết hợp X25519 và ML-KEM-768 (bản nháp IETF, mang tính thực nghiệm) \\
+XOF & Extendable-Output Function -- hàm băm cho đầu ra độ dài tùy ý (ví dụ SHAKE) \\
+\hline
+\end{longtable}

@@ -1,0 +1,30 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="ActivityUC09" id="act-uc09">
+    <mxGraphModel dx="800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="720" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="s" value="" style="ellipse;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="197" y="20" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="a1" value="Tạo group và chọn thành viên trong danh sách bạn" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="40" y="70" width="340" height="44" as="geometry" /></mxCell>
+        <mxCell id="a2" value="OpenMLS tạo group state, claim KeyPackage X-Wing của thành viên" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="40" y="148" width="340" height="48" as="geometry" /></mxCell>
+        <mxCell id="a3" value="Gửi GroupInfo / Welcome / Commit ở bước apply" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="40" y="230" width="340" height="44" as="geometry" /></mxCell>
+        <mxCell id="d1" value="Server validate PublicGroup OK?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="100" y="300" width="220" height="90" as="geometry" /></mxCell>
+        <mxCell id="err" value="Từ chối (không phải bạn / sai ciphersuite)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="450" y="323" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="a4" value="Lưu public state, tạo conversation và membership; người tạo là admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="40" y="420" width="340" height="48" as="geometry" /></mxCell>
+        <mxCell id="a5" value="Thành viên nhận Welcome" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="40" y="496" width="340" height="44" as="geometry" /></mxCell>
+        <mxCell id="er" value="" style="ellipse;html=1;fillColor=none;strokeColor=#000000;strokeWidth=2;" vertex="1" parent="1"><mxGeometry x="545" y="412" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="ed" value="" style="ellipse;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="553" y="420" width="14" height="14" as="geometry" /></mxCell>
+        <mxCell id="fr" value="" style="ellipse;html=1;fillColor=none;strokeColor=#000000;strokeWidth=2;" vertex="1" parent="1"><mxGeometry x="195" y="574" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="fd" value="" style="ellipse;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="203" y="582" width="14" height="14" as="geometry" /></mxCell>
+        <mxCell id="e1" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="s" target="a1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="a3" target="d1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="Không" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="d1" target="err"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="err" target="er"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="Có" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="d1" target="a4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="a4" target="a5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1" source="a5" target="fr"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
